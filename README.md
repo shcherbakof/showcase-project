@@ -1,4 +1,4 @@
-# Market Monitoring Pipeline (API «Работа России»)
+# Market Monitoring Pipeline ([API «Работа России»](https://trudvsem.ru/opendata/api)
 
 Проект разработан мной совместно с OpenAI Codex 5.3. Цель репозитория — показать мою практику совместной разработки с AI-агентом
 
