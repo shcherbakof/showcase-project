@@ -23,6 +23,7 @@
 
 ## Быстрый старт
 
+Стенд можно развернуть локально. 
 Требования: `docker`, `docker compose`, `make`.
 
 ```bash
@@ -33,7 +34,7 @@ make smoke
 
 ## Где смотреть результат
 
-- Excel-отчеты (пример артефактов): [`artifacts/reports/excel/`](/artifacts/reports/excel/)
+- Excel-отчеты пример артефактов складываются в папку  `artifacts/reports/excel/`
 - Рабочая документация и история сессий: [`artifacts/docs/`](/artifacts/docs/)
 
 ## Документация
