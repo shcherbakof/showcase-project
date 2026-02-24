@@ -1,0 +1,28 @@
+version: 1
+databases:
+  - database_name: project_db
+    tables:
+      - schema: mon
+        table_name: v_pipeline_health_status_cards
+      - schema: mon
+        table_name: v_pipeline_health_freshness_current
+      - schema: mon
+        table_name: v_pipeline_health_volumes_daily
+      - schema: mon
+        table_name: v_pipeline_health_dq_daily
+      - schema: mon
+        table_name: v_pipeline_health_dq_current
+      - schema: mon
+        table_name: v_pipeline_health_last_runs
+      - schema: mon
+        table_name: v_business_health_kpi_cards
+      - schema: mon
+        table_name: v_business_health_dynamics_daily
+      - schema: mon
+        table_name: v_business_health_salary_daily
+      - schema: mon
+        table_name: v_business_health_top_regions_current
+      - schema: mon
+        table_name: v_business_health_top_professions_current
+      - schema: mon
+        table_name: v_business_health_top_employers_current

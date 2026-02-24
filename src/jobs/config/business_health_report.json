@@ -1,0 +1,19 @@
+{
+  "contact": {
+    "team": "Data Team",
+    "email": "demo@local",
+    "note": "Демо-стенд портфолио. По вопросам пишите в команду данных."
+  },
+  "report": {
+    "title": "Business Health — ежедневная Excel витрина",
+    "timezone": "Europe/Moscow",
+    "sheet_names": {
+      "legend": "Легенда",
+      "summary": "Сводка",
+      "top_regions": "Топ регионы",
+      "top_professions": "Топ профессии",
+      "top_employers": "Топ работодатели",
+      "exceptions": "Исключения"
+    }
+  }
+}

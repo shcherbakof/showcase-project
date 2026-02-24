@@ -1,0 +1,236 @@
+name: ${COMPOSE_PROJECT_NAME}
+
+x-common-env: &common_env
+  TZ: ${TZ}
+  LANG: ${LANG}
+  LC_ALL: ${LC_ALL}
+
+x-postgres-client-env: &postgres_client_env
+  PGHOST: postgres
+  PGPORT: 5432
+  PGUSER: ${POSTGRES_SUPERUSER}
+  PGPASSWORD: ${POSTGRES_SUPERPASS}
+
+services:
+  postgres:
+    image: postgres:${POSTGRES_IMAGE_TAG}
+    profiles: ["db", "db-init", "airflow", "superset"]
+    container_name: ${COMPOSE_PROJECT_NAME}_postgres
+    restart: unless-stopped
+    environment:
+      <<: *common_env
+      POSTGRES_USER: ${POSTGRES_SUPERUSER}
+      POSTGRES_PASSWORD: ${POSTGRES_SUPERPASS}
+      POSTGRES_DB: postgres
+      PGDATA: ${POSTGRES_PGDATA}
+      POSTGRES_INITDB_ARGS: "--encoding=${POSTGRES_ENCODING} --locale=${POSTGRES_LOCALE}"
+    ports:
+      - "${POSTGRES_HOST_PORT}:5432"
+    volumes:
+      - pgdata:${POSTGRES_PGDATA}
+    networks:
+      - app_net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d postgres -h 127.0.0.1 -p 5432"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    command:
+      - postgres
+      - -c
+      - log_timezone=${TZ}
+      - -c
+      - log_line_prefix=%m [%p] %q%u@%d
+
+  db-init:
+    image: postgres:${POSTGRES_IMAGE_TAG}
+    profiles: ["db-init"]
+    container_name: ${COMPOSE_PROJECT_NAME}_db_init
+    restart: "no"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      <<: [*common_env, *postgres_client_env]
+      PROJECT_DB: ${PROJECT_DB}
+      PROJECT_USER: ${PROJECT_USER}
+      PROJECT_PASS: ${PROJECT_PASS}
+      AIRFLOW_DB: ${AIRFLOW_DB}
+      AIRFLOW_USER: ${AIRFLOW_USER}
+      AIRFLOW_PASS: ${AIRFLOW_PASS}
+      SUPERSET_DB: ${SUPERSET_DB}
+      SUPERSET_USER: ${SUPERSET_USER}
+      SUPERSET_PASS: ${SUPERSET_PASS}
+      DB_SEED_ENABLED: ${DB_SEED_ENABLED}
+      MODE: ${DB_INIT_MODE:-full-init}
+    volumes:
+      - ./sql/db:/sql/db:ro
+      - ./docker/db-init:/docker/db-init:ro
+    networks:
+      - app_net
+    command: ["/bin/bash", "/docker/db-init/db-init.sh"]
+
+  airflow-init:
+    build:
+      context: .
+      dockerfile: airflow/Dockerfile
+      args:
+        AIRFLOW_IMAGE_TAG: ${AIRFLOW_IMAGE_TAG:-2.10.5-python3.11}
+    profiles: ["airflow"]
+    container_name: ${COMPOSE_PROJECT_NAME}_airflow_init
+    restart: "no"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      <<: *common_env
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "True"
+      AIRFLOW__CORE__DEFAULT_TIMEZONE: ${TZ}
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${AIRFLOW_USER}:${AIRFLOW_PASS}@postgres:5432/${AIRFLOW_DB}
+      AIRFLOW_UID: ${AIRFLOW_UID:-50000}
+      AIRFLOW_ADMIN_USERNAME: ${AIRFLOW_ADMIN_USERNAME:-admin}
+      AIRFLOW_ADMIN_PASSWORD: ${AIRFLOW_ADMIN_PASSWORD:-admin}
+      AIRFLOW_ADMIN_FIRSTNAME: ${AIRFLOW_ADMIN_FIRSTNAME:-Admin}
+      AIRFLOW_ADMIN_LASTNAME: ${AIRFLOW_ADMIN_LASTNAME:-User}
+      AIRFLOW_ADMIN_EMAIL: ${AIRFLOW_ADMIN_EMAIL:-admin@example.com}
+      PROJECT_DB_URI: postgresql+psycopg2://${PROJECT_USER}:${PROJECT_PASS}@postgres:5432/${PROJECT_DB}
+    volumes:
+      - airflow_logs:/opt/airflow/logs
+      - ./airflow/dags:/opt/airflow/dags
+    networks:
+      - app_net
+    command: ["version"]
+
+  airflow-webserver:
+    build:
+      context: .
+      dockerfile: airflow/Dockerfile
+      args:
+        AIRFLOW_IMAGE_TAG: ${AIRFLOW_IMAGE_TAG:-2.10.5-python3.11}
+    profiles: ["airflow"]
+    container_name: ${COMPOSE_PROJECT_NAME}_airflow_webserver
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      <<: *common_env
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "True"
+      AIRFLOW__CORE__DEFAULT_TIMEZONE: ${TZ}
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${AIRFLOW_USER}:${AIRFLOW_PASS}@postgres:5432/${AIRFLOW_DB}
+      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "False"
+      AIRFLOW__WEBSERVER__SHOW_TRIGGER_FORM_IF_NO_PARAMS: "True"
+      PROJECT_DB_URI: postgresql+psycopg2://${PROJECT_USER}:${PROJECT_PASS}@postgres:5432/${PROJECT_DB}
+    ports:
+      - "${AIRFLOW_HOST_PORT:-8080}:8080"
+    volumes:
+      - airflow_logs:/opt/airflow/logs
+      - ./airflow/dags:/opt/airflow/dags
+    networks:
+      - app_net
+    command: ["webserver"]
+
+  airflow-scheduler:
+    build:
+      context: .
+      dockerfile: airflow/Dockerfile
+      args:
+        AIRFLOW_IMAGE_TAG: ${AIRFLOW_IMAGE_TAG:-2.10.5-python3.11}
+    profiles: ["airflow"]
+    container_name: ${COMPOSE_PROJECT_NAME}_airflow_scheduler
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      <<: *common_env
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "True"
+      AIRFLOW__CORE__DEFAULT_TIMEZONE: ${TZ}
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${AIRFLOW_USER}:${AIRFLOW_PASS}@postgres:5432/${AIRFLOW_DB}
+      PROJECT_DB_URI: postgresql+psycopg2://${PROJECT_USER}:${PROJECT_PASS}@postgres:5432/${PROJECT_DB}
+    volumes:
+      - airflow_logs:/opt/airflow/logs
+      - ./airflow/dags:/opt/airflow/dags
+    networks:
+      - app_net
+    command: ["scheduler"]
+
+  superset-init:
+    build:
+      context: .
+      dockerfile: superset/Dockerfile
+      args:
+        SUPERSET_IMAGE_TAG: ${SUPERSET_IMAGE_TAG:-4.1.1}
+    profiles: ["superset"]
+    container_name: ${COMPOSE_PROJECT_NAME}_superset_init
+    restart: "no"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      <<: *common_env
+      SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY:-super-secret-key-for-local-demo}
+      SUPERSET__SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://${SUPERSET_USER}:${SUPERSET_PASS}@postgres:5432/${SUPERSET_DB}
+      SUPERSET_ADMIN_USERNAME: ${SUPERSET_ADMIN_USERNAME:-admin}
+      SUPERSET_ADMIN_PASSWORD: ${SUPERSET_ADMIN_PASSWORD:-admin}
+      SUPERSET_ADMIN_FIRSTNAME: ${SUPERSET_ADMIN_FIRSTNAME:-Admin}
+      SUPERSET_ADMIN_LASTNAME: ${SUPERSET_ADMIN_LASTNAME:-User}
+      SUPERSET_ADMIN_EMAIL: ${SUPERSET_ADMIN_EMAIL:-admin@example.com}
+      PROJECT_DB_URI: postgresql+psycopg2://${PROJECT_USER}:${PROJECT_PASS}@postgres:5432/${PROJECT_DB}
+    volumes:
+      - superset_home:/app/superset_home
+      - ./superset:/app/project/superset
+    networks:
+      - app_net
+    command: ["/bin/bash", "/app/project/superset/bootstrap.sh", "init"]
+
+  superset:
+    build:
+      context: .
+      dockerfile: superset/Dockerfile
+      args:
+        SUPERSET_IMAGE_TAG: ${SUPERSET_IMAGE_TAG:-4.1.1}
+    profiles: ["superset"]
+    container_name: ${COMPOSE_PROJECT_NAME}_superset
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      <<: *common_env
+      SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY:-super-secret-key-for-local-demo}
+      SUPERSET__SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://${SUPERSET_USER}:${SUPERSET_PASS}@postgres:5432/${SUPERSET_DB}
+      PROJECT_DB_URI: postgresql+psycopg2://${PROJECT_USER}:${PROJECT_PASS}@postgres:5432/${PROJECT_DB}
+    ports:
+      - "${SUPERSET_HOST_PORT:-8088}:8088"
+    volumes:
+      - superset_home:/app/superset_home
+      - ./superset:/app/project/superset
+    networks:
+      - app_net
+    command: ["/bin/bash", "/app/project/superset/bootstrap.sh", "run"]
+
+networks:
+  app_net:
+    name: ${COMPOSE_PROJECT_NAME}_net
+    driver: bridge
+
+volumes:
+  pgdata:
+    name: ${COMPOSE_PROJECT_NAME}_pgdata
+  airflow_logs:
+    name: ${COMPOSE_PROJECT_NAME}_airflow_logs
+  superset_home:
+    name: ${COMPOSE_PROJECT_NAME}_superset_home

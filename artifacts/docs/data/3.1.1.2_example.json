@@ -1,0 +1,514 @@
+[
+    {
+        "region_66": {
+            "status": "200",
+            "request": {
+                "api": "v1"
+            },
+            "meta": {
+                "total": 17973,
+                "limit": 2
+            },
+            "results": {
+                "vacancies": [
+                    {
+                        "vacancy": {
+                            "id": "4cfe31f0-0e3c-11f1-a990-837b73ca4e2b",
+                            "source": "Работодатель",
+                            "region": {
+                                "region_code": "6600000000000",
+                                "name": "Свердловская область"
+                            },
+                            "company": {
+                                "companycode": "1069613005714",
+                                "email": "wodokanal-08@mail.ru",
+                                "hr-agency": false,
+                                "inn": "6649004009",
+                                "kpp": "663301001",
+                                "name": "МУП ПМО СО \"ВОДОКАНАЛСЕРВИС\"",
+                                "ogrn": "1069613005714",
+                                "site": "http://Vodapishma.ru",
+                                "url": "https://trudvsem.ru/company/1069613005714"
+                            },
+                            "creation-date": "2026-02-20",
+                            "date_modify": "2026-02-20T13:34:06+0300",
+                            "salary": "от 31157",
+                            "salary_min": 31157,
+                            "salary_max": 31157,
+                            "job-name": "Истопник",
+                            "vac_url": "https://trudvsem.ru/vacancy/card/1069613005714/4cfe31f0-0e3c-11f1-a990-837b73ca4e2b",
+                            "schedule": "Сменная работа",
+                            "qualification": "нет",
+                            "requirements": "Дисциплинированность, пунктуальность",
+                            "duty": "обслуживание котлов по твердому топливу, поддержание заданной температуры в помещениях, заготовка (колка, пиление ) и загрузка топлива.",
+                            "category": {
+                                "specialisation": "ЖКХ, эксплуатация"
+                            },
+                            "requirement": {
+                                "education": "Tребования не предъявляются",
+                                "experience": 0
+                            },
+                            "addresses": {
+                                "address": [
+                                    {
+                                        "location": "Свердловская область, Пышминский район, Пышма поселок городского типа, Больничный переулок, дом: ЗД. 15;",
+                                        "lng": "63.270663",
+                                        "lat": "56.950934"
+                                    }
+                                ]
+                            },
+                            "social_protected": "",
+                            "contact_list": [
+                                {
+                                    "contact_type": "Телефон",
+                                    "contact_value": "+7(343) 722-17-15"
+                                },
+                                {
+                                    "contact_type": "Эл. почта",
+                                    "contact_value": "wodokanal-08@mail.ru"
+                                }
+                            ],
+                            "contact_person": "Ржаников Владимир Борисович",
+                            "work_places": 1,
+                            "code_profession": "126181",
+                            "typicalPosition": "Истопник",
+                            "skills": [],
+                            "workPlaceType": {
+                                "workPlaceForeign": false,
+                                "workPlaceOrdinary": true,
+                                "workPlaceQuota": false,
+                                "workPlaceSpecial": false
+                            },
+                            "shift": [
+                                "По графику сменности"
+                            ],
+                            "trainingDays": 0,
+                            "currency": "«руб.»"
+                        }
+                    },
+                    {
+                        "vacancy": {
+                            "id": "66982570-0e47-11f1-ae78-117abf1c97c6",
+                            "source": "Работодатель",
+                            "region": {
+                                "region_code": "6600000000000",
+                                "name": "Свердловская область"
+                            },
+                            "company": {
+                                "companycode": "304661311700040",
+                                "email": "marina.skakunovabk@yandex.ru",
+                                "hr-agency": false,
+                                "inn": "664900000132",
+                                "name": "ИП Скакунова Т. В.",
+                                "ogrn": "304661311700040",
+                                "url": "https://trudvsem.ru/company/304661311700040"
+                            },
+                            "creation-date": "2026-02-20",
+                            "date_modify": "2026-02-20T13:33:18+0300",
+                            "salary": "от 31157",
+                            "salary_min": 31157,
+                            "salary_max": 31157,
+                            "job-name": "Пекарь",
+                            "vac_url": "https://trudvsem.ru/vacancy/card/304661311700040/66982570-0e47-11f1-ae78-117abf1c97c6",
+                            "schedule": "Сменная работа",
+                            "qualification": "нет",
+                            "requirements": "Ответственность",
+                            "duty": "Формовка хлебобулочных изделий замешивание и формовка теста вручную, а также на специальном оборудовании. Выпечка хлебобулочных изделий несдобных, сдобных, сложных и мелкоштучных, а также праздничных тортов, сложных видов печенья.",
+                            "category": {
+                                "specialisation": "Пищевая промышленность"
+                            },
+                            "requirement": {
+                                "education": "Tребования не предъявляются",
+                                "experience": 0
+                            },
+                            "addresses": {
+                                "address": [
+                                    {
+                                        "location": "Свердловская область, Пышминский район, Пышма поселок городского типа, Комарова улица, 17",
+                                        "lng": "63.253092",
+                                        "lat": "56.95279"
+                                    }
+                                ]
+                            },
+                            "social_protected": "",
+                            "contact_list": [
+                                {
+                                    "contact_type": "Телефон",
+                                    "contact_value": "+7(343) 722-47-49"
+                                },
+                                {
+                                    "contact_type": "Эл. почта",
+                                    "contact_value": "evgen-skakunov@yandex.ru"
+                                }
+                            ],
+                            "contact_person": "Скакунова Марина Александровна",
+                            "work_places": 1,
+                            "code_profession": "164728",
+                            "typicalPosition": "Повар",
+                            "skills": [],
+                            "workPlaceType": {
+                                "workPlaceForeign": false,
+                                "workPlaceOrdinary": true,
+                                "workPlaceQuota": false,
+                                "workPlaceSpecial": false
+                            },
+                            "shift": [
+                                "Только ночная смена"
+                            ],
+                            "trainingDays": 0,
+                            "currency": "«руб.»"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "region_77": {
+            "status": "200",
+            "request": {
+                "api": "v1"
+            },
+            "meta": {
+                "total": 15601,
+                "limit": 2
+            },
+            "results": {
+                "vacancies": [
+                    {
+                        "vacancy": {
+                            "id": "6d41e9c9-f825-11f0-8628-a3cca5294b78",
+                            "source": "Работодатель",
+                            "region": {
+                                "region_code": "7700000000000",
+                                "name": "Город Москва"
+                            },
+                            "company": {
+                                "companycode": "1027700174721",
+                                "email": "rozhkova@k-electro.ru",
+                                "hr-agency": false,
+                                "inn": "7731137765",
+                                "kpp": "773101001",
+                                "name": "ООО \"КУНЦЕВО-ЭЛЕКТРО\"",
+                                "ogrn": "1027700174721",
+                                "site": "http://k-electro.ru/",
+                                "url": "https://trudvsem.ru/company/1027700174721"
+                            },
+                            "creation-date": "2026-01-23",
+                            "date_modify": "2026-02-20T13:33:02+0300",
+                            "salary": "от 39730",
+                            "salary_min": 39730,
+                            "salary_max": 59730,
+                            "job-name": "Уборщик территорий",
+                            "vac_url": "https://trudvsem.ru/vacancy/card/1027700174721/6d41e9c9-f825-11f0-8628-a3cca5294b78",
+                            "employment": "Полная занятость",
+                            "schedule": "Полный рабочий день",
+                            "qualification": "не требуется",
+                            "requirements": "Опыт не требуется",
+                            "duty": "Уборка территории от мусора и снега.",
+                            "category": {
+                                "specialisation": "Производство"
+                            },
+                            "requirement": {
+                                "education": "Среднее профессиональное образование",
+                                "experience": 0
+                            },
+                            "addresses": {
+                                "address": [
+                                    {
+                                        "location": "г Москва, Молодогвардейская улица, дом: 52;",
+                                        "lng": "37.402255",
+                                        "lat": "55.7344"
+                                    }
+                                ]
+                            },
+                            "social_protected": "",
+                            "contact_list": [
+                                {
+                                    "contact_type": "Телефон",
+                                    "contact_value": "+7(499) 141-55-30"
+                                },
+                                {
+                                    "contact_type": "Эл. почта",
+                                    "contact_value": "ok@k-electro.ru"
+                                }
+                            ],
+                            "contact_person": "Новичкова Алла Владимировна",
+                            "work_places": 1,
+                            "code_profession": "192624",
+                            "typicalPosition": "Дворник",
+                            "skills": [
+                                "Сбор и удаление бытовых отходов/мусора",
+                                "Сбор и удаление бытовых отходов/мусора"
+                            ],
+                            "workPlaceType": {
+                                "workPlaceForeign": false,
+                                "workPlaceOrdinary": true,
+                                "workPlaceQuota": false,
+                                "workPlaceSpecial": false
+                            },
+                            "hireDate": "2026-01-26T03:00:00+0300",
+                            "shift": [],
+                            "conditions": "Допустимые",
+                            "trainingDays": 0,
+                            "currency": "«руб.»"
+                        }
+                    },
+                    {
+                        "vacancy": {
+                            "id": "82aa0298-0656-11f1-8814-518d776f6b8e",
+                            "source": "Работодатель",
+                            "region": {
+                                "region_code": "7700000000000",
+                                "name": "Город Москва"
+                            },
+                            "company": {
+                                "companycode": "1027700174721",
+                                "email": "rozhkova@k-electro.ru",
+                                "hr-agency": false,
+                                "inn": "7731137765",
+                                "kpp": "773101001",
+                                "name": "ООО \"КУНЦЕВО-ЭЛЕКТРО\"",
+                                "ogrn": "1027700174721",
+                                "site": "http://k-electro.ru/",
+                                "url": "https://trudvsem.ru/company/1027700174721"
+                            },
+                            "creation-date": "2026-02-10",
+                            "date_modify": "2026-02-20T13:33:02+0300",
+                            "salary": "от 39730",
+                            "salary_min": 39730,
+                            "salary_max": 39730,
+                            "job-name": "Сборщик изделий из пластмасс",
+                            "vac_url": "https://trudvsem.ru/vacancy/card/1027700174721/82aa0298-0656-11f1-8814-518d776f6b8e",
+                            "employment": "Полная занятость",
+                            "schedule": "Полный рабочий день",
+                            "qualification": "2 разряд",
+                            "requirements": "Дисциплинированность, ответственность",
+                            "duty": "Сборка электроустановочных изделий",
+                            "category": {
+                                "specialisation": "Производство"
+                            },
+                            "requirement": {
+                                "education": "Общее образование",
+                                "experience": 0
+                            },
+                            "addresses": {
+                                "address": [
+                                    {
+                                        "location": "г Москва, Молодогвардейская улица, дом: 52;",
+                                        "lng": "37.402255",
+                                        "lat": "55.7344"
+                                    }
+                                ]
+                            },
+                            "social_protected": "",
+                            "contact_list": [
+                                {
+                                    "contact_type": "Телефон",
+                                    "contact_value": "+7(499) 141-55-30"
+                                },
+                                {
+                                    "contact_type": "Эл. почта",
+                                    "contact_value": "ok@k-electro.ru"
+                                }
+                            ],
+                            "contact_person": "Новичкова Алла Владимировна",
+                            "work_places": 2,
+                            "code_profession": "181653",
+                            "typicalPosition": "Ничего не выбрано",
+                            "skills": [],
+                            "workPlaceType": {
+                                "workPlaceForeign": false,
+                                "workPlaceOrdinary": false,
+                                "workPlaceQuota": false,
+                                "workPlaceSpecial": true
+                            },
+                            "hireDate": "2026-02-16T03:00:00+0300",
+                            "shift": [],
+                            "trainingDays": 0,
+                            "currency": "«руб.»"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "region_78": {
+            "status": "200",
+            "request": {
+                "api": "v1"
+            },
+            "meta": {
+                "total": 14118,
+                "limit": 2
+            },
+            "results": {
+                "vacancies": [
+                    {
+                        "vacancy": {
+                            "id": "31802690-081a-11f1-93cf-9fd44cff2ded",
+                            "source": "Работодатель",
+                            "region": {
+                                "region_code": "7800000000000",
+                                "name": "Город Санкт-Петербург"
+                            },
+                            "company": {
+                                "companycode": "1237800042655",
+                                "email": "StarkSoft.1C@yandex.ru",
+                                "hr-agency": false,
+                                "inn": "7811786821",
+                                "kpp": "781101001",
+                                "name": "ООО \"СТАРК СОФТ\"",
+                                "ogrn": "1237800042655",
+                                "site": "http://starksoft.net",
+                                "url": "https://trudvsem.ru/company/1237800042655"
+                            },
+                            "creation-date": "2026-02-12",
+                            "date_modify": "2026-02-20T13:32:26+0300",
+                            "salary": "от 35000",
+                            "salary_min": 35000,
+                            "salary_max": 80000,
+                            "job-name": "Системный администратор",
+                            "vac_url": "https://trudvsem.ru/vacancy/card/1237800042655/31802690-081a-11f1-93cf-9fd44cff2ded",
+                            "employment": "Полная занятость",
+                            "schedule": "Полный рабочий день",
+                            "qualification": "Эникей",
+                            "requirements": "опыт работы системным администратором от 1-го года; знание ОС семейства Windows/Linux: установка, настройка и обслуживание;знание систем виртуализации: установка,настройка и обслуживание;понимание принципов построения и работы сети, сетевых служб;опыт настройки и администрирование систем хранения (DAS,NAS,SAN); опыт администрирования систем мониторинга (zabbix, nagios, prometheus); администрирования СУБД (PostgreSQL, MSSQL) навыки администрирования сетевого оборудования (cli),",
+                            "duty": "поддержка и обслуживание серверов на базе ОС Windows/Linux; поддержка систем хранения данных; поддержка системы виртуализации; поддержка СУБД.",
+                            "category": {
+                                "specialisation": "Информационные технологии, телекоммуникации, связь"
+                            },
+                            "requirement": {
+                                "education": "Tребования не предъявляются",
+                                "experience": 1
+                            },
+                            "addresses": {
+                                "address": [
+                                    {
+                                        "location": "г Санкт-Петербург, Обводного канала набережная, 14",
+                                        "lng": "30.391919",
+                                        "lat": "59.917366"
+                                    }
+                                ]
+                            },
+                            "social_protected": "",
+                            "contact_list": [
+                                {
+                                    "contact_type": "Телефон",
+                                    "contact_value": "+7(812) 643-02-11"
+                                },
+                                {
+                                    "contact_type": "Мобильный телефон",
+                                    "contact_value": "+7(921) 433-46-82"
+                                },
+                                {
+                                    "contact_type": "Эл. почта",
+                                    "contact_value": "Osin_Oleg@mail.ru"
+                                }
+                            ],
+                            "contact_person": "Осин Олег Владимирович",
+                            "work_places": 1,
+                            "code_profession": "400700",
+                            "typicalPosition": "Системный администратор",
+                            "skills": [],
+                            "addressOffice": "310",
+                            "workPlaceType": {
+                                "workPlaceForeign": false,
+                                "workPlaceOrdinary": true,
+                                "workPlaceQuota": false,
+                                "workPlaceSpecial": false
+                            },
+                            "shift": [],
+                            "conditions": "Оптимальные",
+                            "trainingDays": 0,
+                            "currency": "«руб.»"
+                        }
+                    },
+                    {
+                        "vacancy": {
+                            "id": "d05e952c-0e2e-11f1-a990-837b73ca4e2b",
+                            "source": "Работодатель",
+                            "region": {
+                                "region_code": "7800000000000",
+                                "name": "Город Санкт-Петербург"
+                            },
+                            "company": {
+                                "companycode": "1089847343134",
+                                "email": "spb4378088@yandex.ru",
+                                "hr-agency": false,
+                                "inn": "7839389912",
+                                "kpp": "783901001",
+                                "name": "ООО \"ЗЕВС\"",
+                                "ogrn": "1089847343134",
+                                "site": "http://zevslent.ru",
+                                "url": "https://trudvsem.ru/company/1089847343134"
+                            },
+                            "creation-date": "2026-02-20",
+                            "date_modify": "2026-02-20T13:31:48+0300",
+                            "salary": "от 70000",
+                            "salary_min": 70000,
+                            "salary_max": 110000,
+                            "job-name": "Помощник мастера на лентоткацком производстве",
+                            "vac_url": "https://trudvsem.ru/vacancy/card/1089847343134/d05e952c-0e2e-11f1-a990-837b73ca4e2b",
+                            "schedule": "Полный рабочий день",
+                            "qualification": "с обучением",
+                            "requirements": "- опыт работы в текстильной отрасли приветствуется!!!! но не обязателен. - обучаемость!!!! - желание вникать в процесс и стать профессионалом в текстильном производстве",
+                            "duty": "-работа на лентоткацких станках (по выпуску ременных текстильных лент) -заправка, настройка и обслуживание станков -работа на сновальной машине",
+                            "category": {
+                                "specialisation": "Производство"
+                            },
+                            "requirement": {
+                                "education": "Tребования не предъявляются",
+                                "experience": 1
+                            },
+                            "addresses": {
+                                "address": [
+                                    {
+                                        "location": "г Санкт-Петербург, Автовская улица, 31, Пешая доступность от жд.ст Броневая",
+                                        "lng": "30.277555",
+                                        "lat": "59.873663"
+                                    }
+                                ]
+                            },
+                            "social_protected": "",
+                            "contact_list": [
+                                {
+                                    "contact_type": "Телефон",
+                                    "contact_value": "+7(900) 640-80-81"
+                                },
+                                {
+                                    "contact_type": "Эл. почта",
+                                    "contact_value": "zevslent@yandex.ru"
+                                }
+                            ],
+                            "contact_person": "Оксана",
+                            "work_places": 1,
+                            "code_profession": "168490",
+                            "typicalPosition": "Ничего не выбрано",
+                            "skills": [
+                                "Ответственность , добросовестность",
+                                "Внимательность",
+                                "Усидчивость",
+                                "честность",
+                                "Ответственность , добросовестность",
+                                "Внимательность",
+                                "Усидчивость"
+                            ],
+                            "addressOffice": "лит В",
+                            "workPlaceType": {
+                                "workPlaceForeign": false,
+                                "workPlaceOrdinary": true,
+                                "workPlaceQuota": false,
+                                "workPlaceSpecial": false
+                            },
+                            "shift": [],
+                            "trainingDays": 0,
+                            "currency": "«руб.»"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+]
